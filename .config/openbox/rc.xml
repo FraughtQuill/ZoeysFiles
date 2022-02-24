@@ -8,7 +8,7 @@
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
        apply -->
-    <followMouse>yes</followMouse>
+    <followMouse>no</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!-- Focus last used window on workspace switch-->
@@ -17,11 +17,11 @@
     <underMouse>no</underMouse>
   </focus>
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
-    <center>yes</center>
+    <center>no</center>
     <!-- place new windows in center of empty spaces-->
-    <monitor>Primary</monitor>
+    <monitor>Any</monitor>
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
@@ -37,6 +37,8 @@
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
   -->
+
+    <!-- =====FONTS===== -->
     <keepBorder>no</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
@@ -94,6 +96,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
+
+
   <desktops>
     <!-- this stuff is only used at startup, pagers allow you to change them
        during a session
@@ -141,6 +145,7 @@
     <left>0</left>
     <right>0</right>
   </margins>
+
   <dock>
     <position>TopLeft</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
@@ -159,6 +164,8 @@
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
+
+  <!-- =====KEYBIND===== -->
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     
@@ -252,6 +259,10 @@
       </action>
     </keybind>
 
+    
+
+
+
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -272,6 +283,7 @@
 
     <!-- The full window -->
     <context name="Frame">
+      
       <mousebind button="W-Left" action="Drag">
         <action name="Move"/>
       </mousebind>
@@ -279,7 +291,6 @@
         <action name="Resize"/>
       </mousebind>
 
-      <!-- TODO: Copy these too desktop context -->
       <mousebind button="W-Up" action="Click">
         <action name="PreviousWindow">
           <finalactions>
@@ -343,7 +354,13 @@
     </context>
 
     <!-- The window excluding decorations -->
+    <!-- Will also send button presses to program -->
     <context name="Client">
+      <mousebind button="Left" action="Click">
+        <action name="Focus"/>
+	<action name="Raise"/>
+      </mousebind>
+
     </context>
 
     <context name="Icon">
@@ -391,17 +408,38 @@
     <!-- the desktop but ignores any possible desktop icon drawing program. -->
     <context name="Root">
       <!-- Menus -->
-      <mousebind button="Middle" action="Press">
-        <action name="ShowMenu">
-          <menu>client-list-combined-menu</menu>
+      <mousebind button="W-Up" action="Click">
+        <action name="PreviousWindow">
+          <finalactions>
+            <action name="Focus"/>
+            <action name="Raise"/>
+            <action name="Unshade"/>
+          </finalactions>
         </action>
       </mousebind>
-      <mousebind button="Right" action="Press">
-        <action name="ShowMenu">
-          <menu>root-menu</menu>
+      <mousebind button="W-Down" action="Click">
+        <action name="NextWindow">
+          <finalactions>
+            <action name="Focus"/>
+            <action name="Raise"/>
+            <action name="Unshade"/>
+          </finalactions>
         </action>
       </mousebind>
-    </context>
+
+      <mousebind button="W-Middle" action="Click">
+        <action name="ShowMenu">
+	  <menu>client-list-combined-menu</menu>
+	</action>
+      </mousebind>
+
+      <mousebind button="W-Right" action="Click">
+        <action name="ShowMenu">
+	  <menu>root-menu</menu>
+	</action>
+      </mousebind>
+
+      </context>
     
     <!-- I'll be honest I dont know what this means -->
     <context name="MoveResize">
