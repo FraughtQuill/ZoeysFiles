@@ -1,0 +1,6 @@
+
+xrandr --output HDMI-0 --left-of DVI-I-1
+nitrogen --restore
+
+# Sync computer to drive
+~/.config/sync-to-drive.sh
