@@ -1,0 +1,11 @@
+[Unit]
+Description=Secondary storage mount
+
+[Mount]
+What=/dev/sda2
+Where=/media/secondarystorage
+Type=ext4
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target

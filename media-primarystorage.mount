@@ -1,0 +1,11 @@
+[Unit]
+Description=Primary storage mount
+
+[Mount]
+What=/dev/sdb1
+Where=/media/primarystorage
+Type=ext4
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target

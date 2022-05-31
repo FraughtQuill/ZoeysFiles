@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount for timeshift backups
+
+[Mount]
+What=/dev/sda1
+Where=/media/timeshift
+Type=ext4
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target
