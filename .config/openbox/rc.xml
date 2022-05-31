@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
-    <strength>10</strength>
+    <strength>20</strength>
     <screen_edge_strength>20</screen_edge_strength>
   </resistance>
   <focus>
@@ -26,7 +26,7 @@
   </placement>
   <theme>
     <name>ztheme</name>
-    <titleLayout>LIMC</titleLayout>
+    <titleLayout>L</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -42,16 +42,16 @@
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>JetBrainsMono Nerd Font Mono</name>
-      <size>8</size>
+      <size>9</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
       <name>JetBrainsMono Nerd Font Mono</name>
-      <size>8</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>normal</weight>
       <!-- 'bold' or 'normal' -->
